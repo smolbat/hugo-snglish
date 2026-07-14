@@ -1,0 +1,79 @@
+{{ $transcript := slice }}
+{{ $translate := slice }}
+{{ $transliteration := slice }}
+{{ $phonetic := slice }}
+{{ $transcript_row := slice }}
+{{ $translate_row := slice }}
+{{ $transliteration_row := slice }}
+{{ $phonetic_row := slice }}
+{{ $file := "transcript.txt" }}
+{{ with .Resources.Get $file }}
+  {{ $transcript = split .Content " " }}
+{{ end }}
+{{ $file := "translate.txt" }}
+{{ with .Resources.Get $file }}
+  {{ $translate = split .Content " " }}
+{{ end }}
+{{ $file := "transliteration.txt" }}
+{{ with .Resources.Get $file }}
+  {{ $transliteration = split .Content " " }}
+{{ end }}
+{{ $file := "phonetic.txt" }}
+{{ with .Resources.Get $file }}
+  {{ $phonetic = split .Content " " }}
+{{ end }}
+
+{{ range .Resources.ByType "audio" }}
+    <audio src="{{ .RelPermalink }}" id="myAudio"></audio>
+{{ end }}
+
+<ul id="mySongList" class="list-group">
+
+{{ range $i, $val := $translate }}
+  {{ $transcript_row = $transcript_row | append (index $transcript $i) }}
+  {{ $phonetic_row = $phonetic_row | append (index $phonetic $i) }}
+  {{ $transliteration_row = $transliteration_row | append (index $transliteration $i) }}
+  {{ $translate_row = $translate_row | append (index $translate $i) }}
+
+  {{ if or (strings.HasSuffix $val ".") (and (strings.HasSuffix $val "_") (lt 1 (len $val))) }}
+    <li class = "item-content"><div class = "item-inner">
+    <table>
+    <tbody>
+    <tr>
+    {{ range $transcript_row }}
+      <td>
+      {{ . }}
+      </td>
+    {{ end }}
+    </tr>
+    <tr>  
+    {{ range $phonetic_row }}
+      <td>
+      {{ . }}
+      </td>
+    {{ end }}
+    </tr>
+    <tr>
+    {{ range $transliteration_row }}
+      <td>
+      {{ . }}
+      </td>
+    {{ end }}
+    </tr>
+    <tr>
+    {{ range $translate_row }}
+      <td>
+      {{ replace . "_" " "}}
+      </td>
+    {{ end }}
+    </tr>
+    </tbody>
+    </table></div></li>
+    {{ $transcript_row = slice }}
+    {{ $translate_row = slice }}
+    {{ $transliteration_row = slice }}
+    {{ $phonetic_row = slice }}
+  {{ end }}
+{{ end }}
+
+</ul>

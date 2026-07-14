@@ -1,0 +1,147 @@
+baseURL: 'https://snglish.ru'
+title: Snglish
+languageCode: en-us
+theme: tailbliss
+DefaultContentLanguage: en
+enableEmoji: true
+enableGitInfo: false
+enableRobotsTXT: true
+canonifyURLs: false
+pagination:
+  pagerSize: 9
+darkmode_js:
+  - assets/js/darkmode.js
+enableInlineShortcodes: true
+
+markup:
+  goldmark:
+    extensions:
+      definitionList: true
+      footnote: true
+      linkify: true
+      linkifyProtocol: https
+      strikethrough: true
+      table: true
+      taskList: true
+      typographer:
+        apostrophe: '&rsquo;'
+        disable: false
+        ellipsis: '&hellip;'
+        emDash: '&mdash;'
+        enDash: '&ndash;'
+        leftAngleQuote: '&laquo;'
+        leftDoubleQuote: '&ldquo;'
+        leftSingleQuote: '&lsquo;'
+        rightAngleQuote: '&raquo;'
+        rightDoubleQuote: '&rdquo;'
+        rightSingleQuote: '&rsquo;'
+    parser:
+      attribute:
+        block: false
+        title: true
+      autoHeadingID: true
+      autoHeadingIDType: github
+      wrapStandAloneImageWithinParagraph: true
+    renderer:
+      hardWraps: false
+      unsafe: true
+      xhtml: false
+
+params:
+  author: Битюцкий Андрей
+  authorimage: assets/images/global/author.webp
+  og_image: images/tailbliss-cover.png
+  moto: "Мгновенное погружение в Английский"
+  description: "Смотрим, слушаем, читаем и сразу же понимаем живую английскую речь."
+  disable_theme_toggle: false
+  disable_stay_uptodate: true
+
+  p1:
+    heading: "Наша миссия"
+    image: "images/pages/our-mission.png"
+    content:
+      - text: "Любой иностранный язык должен быть средством общения, а не преградой. Слушая любимые рассказы, читая любимых авторов, знакомьтесь с иностранной культурой, а мы поможем убрать все преграды и сложности."
+      - text: "При строительстве Вавилонской башни люди говорили на одном языке. Наш сайт поможет вернуться в то удивительное время."
+      - text: "Пробуйте. Читайте. Слушайте. Самое главное - ничего не бойтесь и вы получите новую жизнь!"
+  p4:
+    heading: "Аудио (книги и подкасты)"
+    content:
+      - text: "Просто запускай любой подкаст и наслаждайся. Все получится само - быстро, просто и максимально удобно!"
+  p5:
+    heading: "Быть в курсе последних событий"
+    content:
+      - text: "Подпишитесь на нашу рассылку и вы будете первыми узнавать самые актуальные новости и изменения на нашем сайте."
+    action: "#"
+    label: "Email адрес"
+    placeholder: "Введите ваш email"
+    button: "Хочу знать новости"
+    
+
+menu:
+  main:
+    - identifier: about
+      name: О сайте
+      url: /
+      weight: 20
+    - identifier: blog
+      name: Подкасты
+      url: /posts/
+      weight: 20
+    - identifier: tarifs
+      name: Тарифы
+      url: /tarifs/
+      weight: 30
+    - identifier: info
+      pre: dropdown
+      name: Инфо
+      weight: 40
+    - identifier: login
+      name: Войти
+      url: /login/
+      weight: 50
+  info:
+    - identifier: user
+      name: О пользователе
+      url: /user/
+      weight: 10
+    - identifier: docs
+      name: Документы
+      url: /docs/
+      weight: 20
+    - identifier: contact
+      name: Контакты
+      url: /contact/
+      weight: 50
+
+  footer:
+    - identifier: about
+      name: О сайте
+      url: /
+      weight: 10
+    - identifier: blog
+      name: Подкасты
+      url: /posts/
+      weight: 20
+    - identifier: tarifs
+      name: Тарифы
+      url: /tarifs/
+      weight: 30
+    - identifier: contact
+      name: Контакты
+      url: /contact/
+      weight: 40
+
+taxonomies:
+  category: Categories
+  tag: Tags
+
+
+module:
+  hugoVersion:
+    extended: true
+    min: "0.148.2"
+
+
+caches:
+  images:
+    dir: :cacheDir/images

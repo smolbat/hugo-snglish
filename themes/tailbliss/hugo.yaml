@@ -1,0 +1,185 @@
+baseURL: 'https://tailbliss.netlify.app/'
+title: TailBliss
+languageCode: en-us
+DefaultContentLanguage: en
+enableEmoji: true
+enableGitInfo: false
+enableRobotsTXT: true
+canonifyURLs: false
+pagination:
+  pagerSize: 9
+darkmode_js:
+  - assets/js/darkmode.js
+enableInlineShortcodes: true
+
+markup:
+  goldmark:
+    extensions:
+      definitionList: true
+      footnote: true
+      linkify: true
+      linkifyProtocol: https
+      strikethrough: true
+      table: true
+      taskList: true
+      typographer:
+        apostrophe: '&rsquo;'
+        disable: false
+        ellipsis: '&hellip;'
+        emDash: '&mdash;'
+        enDash: '&ndash;'
+        leftAngleQuote: '&laquo;'
+        leftDoubleQuote: '&ldquo;'
+        leftSingleQuote: '&lsquo;'
+        rightAngleQuote: '&raquo;'
+        rightDoubleQuote: '&rdquo;'
+        rightSingleQuote: '&rsquo;'
+    parser:
+      attribute:
+        block: false
+        title: true
+      autoHeadingID: true
+      autoHeadingIDType: github
+      wrapStandAloneImageWithinParagraph: true
+    renderer:
+      hardWraps: false
+      unsafe: true
+      xhtml: false
+
+params:
+  author: Nusser Studios
+  authorimage: ../assets/images/global/author.webp
+  og_image: /images/tailbliss-cover.png
+  moto: "Super Fast, and Flexible"
+  description: "A Hugo theme built with love, using TailwindCSS, Alpine.JS, and Hugo Pipes. Images are optimized for use with Hugo Pipes for WebP format."
+  disable_theme_toggle: false
+  newsletter_signup: true
+
+
+menu:
+  main:
+    - identifier: prose
+      name: Prose
+      url: /prose/
+      weight: 10
+    - identifier: about
+      name: About
+      url: /about/
+      weight: 20
+    - identifier: categories
+      pre: dropdown
+      name: Categories
+      weight: 30
+    - identifier: dropdown
+      pre: complexdropdown
+      name: Dropdown
+      weight: 40
+    - identifier: contact
+      name: Contact
+      url: /contact/
+      weight: 50
+  categories:
+    - identifier: prose
+      name: Prose
+      url: /prose/
+      weight: 10
+    - identifier: about
+      name: About
+      url: /about/
+      weight: 20
+  dropdown:
+    - identifier: appearance
+      pre: stars # can be stars, comments or piechart
+      name: Appearance
+      post: "Easy customization"
+      url: "#"
+      weight: 10
+    - identifier: comments
+      pre: comments # can be stars, comments or piechart
+      name: Comments
+      post: "Check your latest comments"
+      url: "#"
+      weight: 20
+    - identifier: analytics
+      pre: piechart # can be stars, comments or piechart
+      name: Analytics
+      post: "Take a look at your statistics"
+      url: "#"
+      weight: 30
+  footer:
+    - identifier: about
+      name: About
+      url: /about/
+      weight: 10
+    - identifier: blog
+      name: Blog
+      url: /categories/blog/
+      weight: 20
+    - identifier: news
+      name: News
+      url: /categories/news/
+      weight: 30
+    - identifier: prose
+      name: Prose
+      url: /prose/
+      weight: 40
+    - identifier: contact
+      name: Contact
+      url: /contact/
+      weight: 50
+
+taxonomies:
+  category: Categories
+  tag: Tags
+
+privacy:
+  disqus:
+    disable: false
+  googleAnalytics:
+    anonymizeIP: true
+    disable: false
+    respectDoNotTrack: false
+    useSessionStorage: false
+  instagram:
+    disable: false
+    simple: false
+  twitter:
+    disable: false
+    enableDNT: false
+    simple: false
+  vimeo:
+    disable: false
+    enableDNT: false
+    simple: false
+  youtube:
+    disable: false
+    privacyEnhanced: true
+
+module:
+  hugoVersion:
+    extended: true
+    min: "0.148.2"
+
+# Performance optimizations
+caches:
+  assets:
+    dir: :cacheDir/assets
+    maxAge: "0s" # Disable caching in development
+  getcsv:
+    dir: :cacheDir/getcsv
+    maxAge: 3600s # 1 hour
+  getjson:
+    dir: :cacheDir/getjson
+    maxAge: 3600s # 1 hour
+  images:
+    dir: :cacheDir/images
+    maxAge: 8760h # 1 year
+  modules:
+    dir: :cacheDir/modules
+    maxAge: 8760h # 1 year
+
+# Image processing defaults
+imaging:
+  quality: 85
+  resampleFilter: lanczos
+  anchor: smart

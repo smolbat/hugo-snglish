@@ -1,0 +1,22 @@
+{{define "main"}}
+<article>
+  <header class="mb-4 bg-primary-600">
+    <span class="py-96">
+      <h1 class="py-16 text-5xl font-black text-center text-white capitalize">
+        {{ .Title }}
+      </h1>
+    </span>
+  </header>
+  <!-- " {{.Content}}" pulls from the markdown content of the corresponding _index.md -->
+  <div id="songPage1">
+    <button id="btnPhonetics">Фонетика</button>
+    <button id="btnPlay">Play</button>
+        <!-- Текст песни  -->
+    {{ partial "titles.html" . }}
+  </div>
+</article>
+<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/NoSleep.min.js"></script>
+<script src="/js/main.js"></script>
+{{end}}
+
