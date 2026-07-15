@@ -1,7 +1,7 @@
 {{ define "main" }}
 <main>
     <article>
-    <div class="container" style="background-image: url('{{ .Params.background_image}}'); background-size: cover;">
+    <div class="container" style="background-image: url('{{- (resources.Get .Params.background_image).RelPermalink -}}'); background-size: cover;">
         <div class="grid_pricing_card">
             <div class="pricing_card">
                 <h2 class="card_title">Фри</h2>
