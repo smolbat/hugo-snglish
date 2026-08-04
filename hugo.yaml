@@ -97,7 +97,7 @@ menu:
       weight: 40
     - identifier: login
       name: Войти
-      url: /oauth.yandex.ru/authorize?response_type=code&client_id=8ccf362ccc394d5bbd9aa116a37e4d78/
+      url: https://oauth.yandex.ru/authorize?response_type=code&client_id=8ccf362ccc394d5bbd9aa116a37e4d78/
       weight: 50
   info:
     - identifier: user
