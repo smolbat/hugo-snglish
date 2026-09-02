@@ -104,6 +104,7 @@ menu:
       name: О пользователе
       url: /user/
       weight: 10
+      hidden: true
     - identifier: docs
       name: Документы
       url: /docs/
