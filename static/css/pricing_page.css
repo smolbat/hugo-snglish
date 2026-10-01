@@ -4,6 +4,7 @@
     margin: 0 auto;
     padding: 0 2rem;
     height: 100%;
+    overflow-x: auto;
 }
 
 .grid_pricing_card {
