@@ -25,6 +25,15 @@ let audioPlayer = document.getElementById("myAudio");
      });
 
     timeShiftArray = songData.map( item => item.start);
+
+    let songId = 1000;
+    const titles_url = 'https://oauth.snglish.ru:8443/titles/' + songId;
+    let jsonResponse = await fetch(titles_url);
+    console.log(jsonResponse);
+    titlesData = await jsonResponse.json();
+    console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
+    console.log(titlesData);
+
     // window.scroll({top: 0, behavior: 'smooth'});
 })();
 
