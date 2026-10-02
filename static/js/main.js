@@ -26,8 +26,7 @@ let audioPlayer = document.getElementById("myAudio");
 
     timeShiftArray = songData.map( item => item.start);
 
-    let songId = 1000;
-    const titles_url = 'https://oauth.snglish.ru:8443/titles/' + songId;
+    const titles_url = "https://oauth.snglish.ru:8443/titles/1000";
     let jsonTitlesData = await fetch(titles_url);
     console.log(jsonTitlesData);
     titlesData = await jsonTitlesData.json();
