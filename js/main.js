@@ -28,9 +28,9 @@ let audioPlayer = document.getElementById("myAudio");
 
     let songId = 1000;
     const titles_url = 'https://oauth.snglish.ru:8443/titles/' + songId;
-    let jsonResponse = await fetch(titles_url);
-    console.log(jsonResponse);
-    titlesData = await jsonResponse.json();
+    let jsonTitlesData = await fetch(titles_url);
+    console.log(jsonTitlesData);
+    titlesData = await jsonTitlesData.json();
     console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
     console.log(titlesData);
 
